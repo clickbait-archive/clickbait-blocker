@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "Clickbait Blocker",
+  "description": "Automatically block sites known for being click-baity, and allow custom settings to add or remove sites from those lists.",
+  "version": "0.1",
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "css": ["css/styles.css"],
+      "js": ["scripts/content_scripts.js"]
+    }
+  ],
+  "content_security_policy": "script-src 'self'; object-src 'self'",
+  "web_accessible_resources": [
+    "configuration/*"
+  ],
+  "permissions": [
+    "storage"
+  ],
+  "options_page": "pages/options.html"
+}
