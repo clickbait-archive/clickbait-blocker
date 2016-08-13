@@ -7,7 +7,7 @@
     {
       "matches": ["http://*/*", "https://*/*"],
       "css": ["css/styles.css"],
-      "js": ["scripts/content_scripts.js"]
+      "js": ["scripts/array_includes_polyfil.js", "scripts/content_scripts.js"]
     }
   ],
   "content_security_policy": "script-src 'self'; object-src 'self'",
