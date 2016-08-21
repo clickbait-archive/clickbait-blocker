@@ -14,3 +14,13 @@
   padding: 15px;
   background-color: rgba(255,255,255,.85);
 }
+
+#clickbaitblocker__why-blocked {
+  padding: 1em 0;
+}
+
+#clickbaitblocker__ignore,
+#clickbaitblocker__action {
+  margin: .25em 1em;
+  padding: .4em;
+}

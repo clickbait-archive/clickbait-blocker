@@ -48,7 +48,45 @@
    * Ignore the block. Just remove the cover div.
    */
   var ignoreTheBlock = function() {
+    // Grab our cover element and the body.
     var cover = document.findElementById(ClickBaitBlocker.baseId + 'cover');
+    var body = document.getElementsByTagName('body')[0];
+
+    // Nothing fancy so far, just remove the node.
+    body.removeChild(cover);
+  }
+
+  /**
+   * Adds this site to the whitelist, then removes the modal.
+   */
+  var addToWhiteList = function() {
+    // Add the hostname to our whitelist.
+    ClickBaitBlocker.whitelist.push(ClickBaitBlocker.currentHostname);
+
+    // Set the new whitelist in our settings— and move on.
+    chrome.storage.sync.set({
+      whitelist: ClickBaitBlocker.whitelist
+    }, ignoreTheBlock);
+  }
+
+  /**
+   * Removes an item from our personal blacklist.
+   */
+  var removeFromBlackList = function() {
+    // Where in this lovely array do we have hostname we want to remove?
+    var index = ClickBaitBlocker.blacklist.indexOf(ClickBaitBlocker.currentHostname);
+
+    // Did we really find the hostname? We should have— but just in case we
+    // will do a check.
+    if (index > -1) {
+      // Remove the item from the blacklist.
+      ClickBaitBlocker.blacklist.splice(index, 1);
+    }
+
+    // Set the new blacklist— remove the modal.
+    chrome.storage.sync.set({
+      blacklist: ClickBaitBlocker.blacklist
+    }, ignoreTheBlock);
   }
 
   /**
@@ -72,12 +110,14 @@
     var reason = 'This site is on our community-based block list. It has been determined that this site is mostly clickbait. If you would like to unblock this site, and be able to access it— you may add it to your personal whitelist or ignore this warning.';
     var buttonAction = 'Add to whitelist';
     var buttonValue = 'whitelist';
+    var buttonFunction = addToWhiteList;
 
     // If this was on our personal blacklist, the reason is very different.
     if (ClickBaitBlocker.checks.onBlacklist) {
       reason = 'This site has been added to your personal block list. You can remove it from your personal block list, or ignore this warning.';
       buttonAction = 'Remove from blacklist';
       buttonValue = 'blacklist';
+      buttonFunction = removeFromBlackList;
     }
 
     var whyBlocked = document.createElement('p');
@@ -89,6 +129,7 @@
         ignoreBlock.innerHTML = 'Ignore';
         ignoreBlock.value = 'ignore';
         ignoreBlock.class = buttonClass;
+        ignoreBlock.onClick = ignoreTheBlock;
 
     var actionBlock = document.createElement('button');
         actionBlock.id = ClickBaitBlocker.baseId + 'action';
