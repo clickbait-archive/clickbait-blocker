@@ -1,4 +1,5 @@
 require("./array_includes_polyfil");
+require("../sass/styles.scss");
 
 
 /**
