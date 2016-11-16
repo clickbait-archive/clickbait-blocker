@@ -1,5 +1,6 @@
 /**
- * A polyful so that we can use Array.includes
+ * A polyful so that we can use Array.includes.
+ * Not sure if this is actually needed, but leaving it in right now.
  */
 
 if (!Array.prototype.includes) {

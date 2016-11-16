@@ -1,0 +1,28 @@
+{
+  "name": "clickbait-blocker",
+  "version": "0.0.1",
+  "description": "Automatically block sites known for being click-baity, and allow custom settings to add or remove sites from those lists.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "clickbait/clickbait-blocker"
+  },
+  "keywords": [
+    "clickbait"
+  ],
+  "author": {
+    "name": "Ian Carrico",
+    "email": "github@iancarrico.com",
+    "url": "https://github.com/iamcarrico"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/clickbait/clickbait-blocker/issues"
+  },
+  "homepage": "https://github.com/clickbait/clickbait-blocker#readme",
+  "dependencies": {
+    "clickbait-blocker-sites": "github:clickbait/clickbait-blocker-sites"
+  }
+}
