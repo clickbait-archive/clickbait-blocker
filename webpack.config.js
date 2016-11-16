@@ -20,7 +20,7 @@ module.exports = {
     ]
   },
   resolve: {
-    modules: ['node_modules', 'src'],
+    modules: ['node_modules'],
     alias: {
       'clickbait-blocker-sites': path.join(__dirname, './node_modules/clickbait-blocker-sites')
      }

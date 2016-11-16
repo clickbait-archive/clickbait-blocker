@@ -10,11 +10,12 @@
     }
   ],
   "content_security_policy": "script-src 'self'; object-src 'self'",
-  "web_accessible_resources": [
-    "configuration/*"
-  ],
   "permissions": [
     "storage"
   ],
-  "options_page": "pages/options.html"
+  "options_ui": {
+    "page": "pages/options.html",
+    "chrome_style": true,
+    "open_in_tab": true
+  }
 }
