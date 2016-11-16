@@ -136,7 +136,7 @@
         actionBlock.innerHTML = buttonAction;
         actionBlock.value = buttonValue;
         actionBlock.class = buttonClass;
-        acttionBlock.onclick = buttonFunction;
+        actionBlock.onclick = buttonFunction;
 
 
     innerDiv.appendChild(titleHeader);
