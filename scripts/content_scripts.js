@@ -49,7 +49,7 @@
    */
   var ignoreTheBlock = function() {
     // Grab our cover element and the body.
-    var cover = document.findElementById(ClickBaitBlocker.baseId + 'cover');
+    var cover = document.getElementById(ClickBaitBlocker.baseId + 'cover');
     var body = document.getElementsByTagName('body')[0];
 
     // Nothing fancy so far, just remove the node.
@@ -129,7 +129,7 @@
         ignoreBlock.innerHTML = 'Ignore';
         ignoreBlock.value = 'ignore';
         ignoreBlock.class = buttonClass;
-        ignoreBlock.onClick = ignoreTheBlock;
+        ignoreBlock.onclick = ignoreTheBlock;
 
     var actionBlock = document.createElement('button');
         actionBlock.id = ClickBaitBlocker.baseId + 'action';
