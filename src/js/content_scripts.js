@@ -66,6 +66,7 @@ require("../sass/styles.scss");
 
     // Nothing fancy so far, just remove the node.
     body.removeChild(cover);
+    body.classList.remove('clickbaitblocker-open');
   }
 
   /**
@@ -106,7 +107,6 @@ require("../sass/styles.scss");
    */
   var breakTheSite = function() {
     var buttonClass = ClickBaitBlocker.baseId + 'buttons';
-
 
     var coverDiv = document.createElement('div');
         coverDiv.id = ClickBaitBlocker.baseId + 'cover';
@@ -157,6 +157,7 @@ require("../sass/styles.scss");
     innerDiv.appendChild(actionBlock);
     coverDiv.appendChild(innerDiv);
     document.getElementsByTagName('body')[0].appendChild(coverDiv);
+    document.getElementsByTagName('body')[0].classList.add('clickbaitblocker-open');
   }
 
   // What is the hostname we are currently on?
