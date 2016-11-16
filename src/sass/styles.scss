@@ -1,0 +1,28 @@
+#clickbaitblocker {
+  &__cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    background-color: rgba(0, 0, 0, 0.85);
+  }
+
+  &__inner {
+    margin: 25px auto 0;
+    max-width: 600px;
+    padding: 15px;
+    background-color: rgba(255,255,255,.85);
+  }
+
+  &__why-blocked {
+    padding: 1em 0;
+  }
+
+  &__ignore,
+  &__action {
+    margin: .25em 1em;
+    padding: .4em;
+  }
+}

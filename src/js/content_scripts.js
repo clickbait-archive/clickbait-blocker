@@ -1,3 +1,7 @@
+require("./array_includes_polyfil");
+require("../sass/styles.scss");
+
+
 /**
  * Running our scripts in a container manner so that we do not mess with
  * variables on the page too much.
@@ -5,12 +9,18 @@
  *                          page.
  */
 (function() {
+  var blocked_sites_json = require("json!clickbait-blocker-sites/sites/blocked.json");
+
   // Setup our variable that will contain all data we care about.
   var ClickBaitBlocker = {
     whitelist: null,
     blacklist: null,
     configuration: null,
     baseId: 'clickbaitblocker__'
+  };
+
+  ClickBaitBlocker.configuration = {
+    blocked_sites: Object.keys(blocked_sites_json)
   };
 
   /**
@@ -34,6 +44,8 @@
       onBuiltinBlacklist: ClickBaitBlocker.configuration.blocked_sites.includes(ClickBaitBlocker.currentHostname)
     };
 
+    ClickBaitBlocker.checks.onWhitelist = false;
+
     // If this site is on either black list, and not on the allowed whitelist—
     // let us get rid of it.
     if ((ClickBaitBlocker.checks.onBlacklist || ClickBaitBlocker.checks.onBuiltinBlacklist) && !ClickBaitBlocker.checks.onWhitelist) {
@@ -54,6 +66,7 @@
 
     // Nothing fancy so far, just remove the node.
     body.removeChild(cover);
+    body.classList.remove('clickbaitblocker-open');
   }
 
   /**
@@ -94,7 +107,6 @@
    */
   var breakTheSite = function() {
     var buttonClass = ClickBaitBlocker.baseId + 'buttons';
-
 
     var coverDiv = document.createElement('div');
         coverDiv.id = ClickBaitBlocker.baseId + 'cover';
@@ -145,25 +157,11 @@
     innerDiv.appendChild(actionBlock);
     coverDiv.appendChild(innerDiv);
     document.getElementsByTagName('body')[0].appendChild(coverDiv);
+    document.getElementsByTagName('body')[0].classList.add('clickbaitblocker-open');
   }
 
   // What is the hostname we are currently on?
   ClickBaitBlocker.currentHostname = document.location.hostname;
-
-  // Grab the settings that we have stored in the json file locally.
-  var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-      // We have the configuration, let's save it locally.
-      ClickBaitBlocker.configuration = JSON.parse(xhr.responseText);
-
-      // Kick off the checks of this site vs the blocklists.
-      checkTheSite();
-    }
-  };
-  // Make the XHR request, getting the local URL via Chrome's extension code.
-  xhr.open('GET', chrome.extension.getURL('/configuration/configuration.json'), true);
-  xhr.send();
 
   // Grab a user's personal settings on what to block and what to always show.
   chrome.storage.sync.get({
