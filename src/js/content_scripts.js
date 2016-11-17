@@ -44,8 +44,6 @@ require("../sass/styles.scss");
       onBuiltinBlacklist: ClickBaitBlocker.configuration.blocked_sites.includes(ClickBaitBlocker.currentHostname)
     };
 
-    ClickBaitBlocker.checks.onWhitelist = false;
-
     // If this site is on either black list, and not on the allowed whitelist—
     // let us get rid of it.
     if ((ClickBaitBlocker.checks.onBlacklist || ClickBaitBlocker.checks.onBuiltinBlacklist) && !ClickBaitBlocker.checks.onWhitelist) {
@@ -140,14 +138,14 @@ require("../sass/styles.scss");
         ignoreBlock.id = ClickBaitBlocker.baseId + 'ignore';
         ignoreBlock.innerHTML = 'Ignore';
         ignoreBlock.value = 'ignore';
-        ignoreBlock.class = buttonClass;
+        ignoreBlock.className = buttonClass;
         ignoreBlock.onclick = ignoreTheBlock;
 
     var actionBlock = document.createElement('button');
         actionBlock.id = ClickBaitBlocker.baseId + 'action';
         actionBlock.innerHTML = buttonAction;
         actionBlock.value = buttonValue;
-        actionBlock.class = buttonClass;
+        actionBlock.className = buttonClass;
         actionBlock.onclick = buttonFunction;
 
 

@@ -14,9 +14,9 @@
     "storage"
   ],
   "icons": {
-    "16": "img/icon_16.png",
-    "48": "img/icon_48.png",
-    "128": "img/icon_128.png"
+    "16": "img/logo_16.png",
+    "48": "img/logo_48.png",
+    "128": "img/logo_128.png"
   },
   "options_ui": {
     "page": "pages/options.html",
