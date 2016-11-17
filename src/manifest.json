@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Clickbait Blocker",
   "description": "Automatically block sites known for being click-baity, and allow custom settings to add or remove sites from those lists.",
-  "version": "0.0.2",
+  "version": "do_not_edit",
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],
