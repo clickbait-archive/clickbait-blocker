@@ -5,10 +5,27 @@
 
   &__site {
 
+    > div {
+      display: inline-block;
+      margin-right: 1em;
+    }
+
 
     &-remove {
       color: red;
       font-weight: bold;
     }
   }
+
+  &-addition {
+    margin-top: 1em;
+  }
+}
+
+#status {
+
+}
+
+#save {
+  margin-top: 1em;
 }
