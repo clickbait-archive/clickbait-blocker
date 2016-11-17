@@ -8,7 +8,7 @@ In comes the Clickbait Blocker, a Chrome browser extension to help you weed thro
 
 ## Installation
 
-TODO: How to install this exension into your browser.
+For regular usage, the extension can be [installed in the Chrome Web Store](https://chrome.google.com/webstore/detail/bdaceojfpjpfnilmonmgohmpjokabjec/). Regular updates will be made to the extension there. 
 
 
 ## Configuration
