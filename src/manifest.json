@@ -7,6 +7,10 @@
     {
       "matches": ["http://*/*", "https://*/*"],
       "js": ["content_scripts.bundle.js"]
+    },
+    {
+      "matches": ["https://facebook.com/*"],
+      "js": ["facebook.bundle.js"]
     }
   ],
   "content_security_policy": "script-src 'self'; object-src 'self'",
